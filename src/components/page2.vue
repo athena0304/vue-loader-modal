@@ -3,7 +3,7 @@
         模态框2
         <span>{{hahaha}}</span>
    </div>
-    
+
 </template>
 
 
@@ -20,7 +20,7 @@
                 this.hahaha = obj.name;
             }
         }
-        
-        
+
+
     }
 </script>
