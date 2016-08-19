@@ -91,7 +91,7 @@
                 })
                 
                 this.$broadcast('body-name', event.target.getAttribute("bodyname"));
-                
+                console.log("hhhhhh")
             }
             
         }
