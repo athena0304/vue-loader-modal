@@ -2,14 +2,14 @@
   <div class="modal-mask" v-show="show">
     <div class="modal-wrapper">
       <div class="modal-container">
-        
+
         <div class="modal-header">
-          
+
             <h3>{{headername}}</h3>
 
         </div>
-        
-        
+
+
         <modal-body></modal-body>
         <modal-footer :process="process"></modal-footer>
 
@@ -26,7 +26,7 @@
         components: {
             "modal-body": ModalBody,
             "modal-footer": ModalFooter,
-            
+
         },
         props: {
             show: {
@@ -35,11 +35,13 @@
                 twoWay: true
             },
             headername: {
-                
+
             },
-            process:{}
+            process:{
+              
+            }
         }
-        
+
     }
 </script>
 
@@ -85,8 +87,8 @@
 .modal-default-button {
   float: right;
 }
-    
-    
+
+
 /*
     modal-enter, .modal-leave {
   opacity: 0;
