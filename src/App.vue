@@ -11,17 +11,30 @@
       
       </modal>
    </div>
+   
+   <div>
+       <Display></Display>
+       <Increment></Increment>
+   </div>
+   
+   <div>{{aaaaa}}</div>
     
 </template>
 
 
 <script>
     import Modal from './components/Modal.vue'
+    import Display from './Display.vue'
+    import Increment from './Increment.vue'
+    import store from './vuex/store'
  
     export default {
         components: {
-            modal: Modal
+            modal: Modal,
+            Display: Display,
+            Increment: Increment
         },
+        store: store,
         data() {
             return {
                 showModal: false,
@@ -30,6 +43,7 @@
                 modalBodyObj: {},
                 secondLine: "第二行啦啦啦啦啦啦啦啦",
                 inputValue:'',
+                aaaaa: '',
                 btns: [
                     {
                         btn:"按钮1",
@@ -62,6 +76,7 @@
             initModal: function(event, btnObj) {
                 this.headername = event.target.getAttribute("headername");
                 this.showModal = true;
+                this.aaaaa = Math.random();
                 
                 this.processFun = btnObj.process;
                 
@@ -77,7 +92,6 @@
                 
                 this.$broadcast('body-name', event.target.getAttribute("bodyname"));
                 
-//                console.log(event.target.getAttribute("bodyname"));
             }
             
         }
