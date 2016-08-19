@@ -17,16 +17,28 @@
 
       </modal>
    </div>
+
+   <div>
+       <Display></Display>
+       <Increment></Increment>
+   </div>
+
+   <div>{{aaaaa}}</div>
 </template>
 
 
 <script>
     import Modal from './components/Modal.vue'
-
+    import Display from './Display.vue'
+    import Increment from './Increment.vue'
+    import store from './vuex/store'
     export default {
         components: {
-            modal: Modal
+            modal: Modal,
+            Display: Display,
+            Increment: Increment
         },
+        store: store,
         data() {
             return {
                 showModal: false,
@@ -34,7 +46,8 @@
                 process: {},
                 modalBodyObj: {},
                 secondLine: "第二行啦啦啦啦啦啦啦啦",
-                aaaaa:'',
+                inputValue:'',
+                aaaaa: '',
                 btns: [
                     {
                         btn:"确定",
@@ -74,6 +87,7 @@
             // }
         },
         methods: {
+
             handleit: function(msg, obj) {
               this.showModal = msg;
               obj.name = obj.changeName;
@@ -97,7 +111,28 @@
               })
 
               this.$broadcast('component-name', btnObj.componentName);
-            }
+
+            // initModal: function(event, btnObj) {
+            //     this.headername = event.target.getAttribute("headername");
+            //     this.showModal = true;
+            //     this.aaaaa = Math.random();
+            //
+            //     this.processFun = btnObj.process;
+            //
+            //
+            //     //dom异步更新，动态组件数据传播
+            //     this.$nextTick(function () {
+            //         if(btnObj.modalBodyObj && btnObj.modalBodyObj.name!==undefined) {
+            //             btnObj.modalBodyObj.name = this.secondLine;
+            //             this.modalBodyObj = btnObj.modalBodyObj;
+            //             this.$broadcast("hahaha",this.modalBodyObj);
+            //         }
+            //     })
+            //
+            //     this.$broadcast('body-name', event.target.getAttribute("bodyname"));
+            //     console.log("hhhhhh")
+            //
+            // }
         }
     }
 
