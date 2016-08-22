@@ -23,8 +23,9 @@
        <Display></Display>
        <Increment></Increment>
        <Decrement></Decrement>
+       <Statecomponent></Statecomponent>
    </div>
-
+   <button @click="createRandom">随机数来一波</button>
    <div>{{aaaaa}}</div>
 </template>
 
@@ -35,12 +36,20 @@
     import Increment from './Increment.vue'
     import Decrement from './Decrement.vue'
     import store from './vuex/store'
+    import Statecomponent from './StateComponent.vue'
+    import {createRandom} from './vuex/actions'
     export default {
         components: {
             Modal,
             Display,
             Increment,
-            Decrement
+            Decrement,
+            Statecomponent
+        },
+        vuex: {
+          actions: {
+            createRandom: createRandom
+          }
         },
         store,
         data() {

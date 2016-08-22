@@ -8,3 +8,7 @@ export const incrementCounter = ({
 export const decrementCounter = ({
   dispatch, state
 }, value) => dispatch('DECREMENT', value)
+
+export const createRandom = ({
+  dispatch, state
+}) => dispatch('RANDOM');

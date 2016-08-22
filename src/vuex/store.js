@@ -8,7 +8,8 @@ Vue.use(Vuex)
 const state = {
   // TODO: 放置初始状态
   // 应用启动时，count 置为0
-  count: 0
+  count: 0,
+  stateCount: ""
 }
 
 
@@ -22,6 +23,9 @@ const mutations = {
     },
     DECREMENT(state, amount) {
       state.count = state.count - amount
+    },
+    RANDOM(state) {
+      state.stateCount = Math.random();
     }
 }
 
