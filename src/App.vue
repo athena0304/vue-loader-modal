@@ -6,21 +6,23 @@
    <div>
      <div class="" v-for= "(index, item) in btns">
        <span class="first-line">第{{index}}行啦啦啦啦啦啦啦啦  {{item.modalBodyObj.name}}</span>
-       <button id="show-modal" @click="initModal($event, btns[index])">按钮{{index}}</button>
+       <button id="show-modal" @click="initModal($event, btns[index])">编辑{{index}}</button>
+       <button id="show-modal1" @click="initModal($event, btns[index])">删除{{index}}</button>
      </div>
 
       <!-- use the modal component, pass in the prop -->
 
       <!-- <button id="show-modal" @click="initModal($event, btns[1])">按钮2</button> -->
       <!-- use the modal component, pass in the prop -->
-      <modal :show.sync="showModal" :headername="headername" v-on:child-show="handleit" :process.sync="process" :modalBody="modalBodyObj">
+      <Modal :show.sync="showModal" :headername="headername" v-on:child-show="handleit" :process.sync="process" :modalBody="modalBodyObj">
 
-      </modal>
+      </Modal>
    </div>
 
    <div>
        <Display></Display>
        <Increment></Increment>
+       <Decrement></Decrement>
    </div>
 
    <div>{{aaaaa}}</div>
@@ -31,14 +33,16 @@
     import Modal from './components/Modal.vue'
     import Display from './Display.vue'
     import Increment from './Increment.vue'
+    import Decrement from './Decrement.vue'
     import store from './vuex/store'
     export default {
         components: {
-            modal: Modal,
-            Display: Display,
-            Increment: Increment
+            Modal,
+            Display,
+            Increment,
+            Decrement
         },
-        store: store,
+        store,
         data() {
             return {
                 showModal: false,
@@ -135,5 +139,5 @@
             // }
         }
     }
-
+}
 </script>
