@@ -5,3 +5,5 @@ coverage
 .idea
 .jshintrc
 /lib/
+package.json
+deployment-config.json

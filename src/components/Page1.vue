@@ -1,26 +1,34 @@
 <template>
     <div>
         模态框1
-        <input type="text" v-on:change = "inputChange($event)" v-model="inputvalue">
+        <input type="text" v-on:change = "inputChange($event)" v-model="obj.changeName">
     </div>
 </template>
 
 <script>
     export default {
-        data(){
+        data() {
             return {
                 name:"",
-                inputvalue:""
+                inputvalue:"",
+                obj: {}
             }
         },
         methods: {
-            inputChange: function(event) {
-                this.$nextTick(function () {
-                    this.$dispatch("input-value", this.inputvalue);
+            inputChange(event) {
+                console.log(this.obj.changeName + " 开始表单验证吧")
+                this.$nextTick(() => {
+                    // this.obj.changeName = this.inputvalue;
+
+                    // this.$dispatch("input-value", this.obj);
                 })
             }
+        },
+        events: {
+          hahaha(obj) {
+              // console.log(obj);
+              this.obj = obj;
+          }
         }
-        
-        
     }
 </script>
